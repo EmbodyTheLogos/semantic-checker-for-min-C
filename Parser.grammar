@@ -1,0 +1,83 @@
+Token regular expression
+
+num        = [0-9]+("."[0-9]+)?(E[+-]?[0-9]+)?
+identifier = [a-zA-Z_][a-zA-Z0-9_]*
+newline    = \n
+whitespace = [ \t\r]+
+comment    = "//".*
+blkcomment = "/*"(.|\n)*"*/"
+
+PRINT           "print"       
+BOOL            "bool"        
+NUM             "num"         
+WHILE           "while"       
+IF              "if"          
+ELSE            "else"        
+RETURN          "return"      
+LBRACE          "{"           
+RBRACE          "}"           
+LPAREN          "("           
+RPAREN          ")"           
+ASSIGN          "="           
+SEMI            ";"           
+COMMA           ","           
+OP_ADD          "+"           
+OP_SUB          "-"           
+OP_MUL          "*"           
+OP_DIV          "/"           
+OP_MOD          "%"           
+OP_AND          "and"         
+OP_OR           "or"          
+OP_NOT          "not"         
+RELOP_LT        "<"           
+RELOP_GT        ">"           
+RELOP_LE        "<="          
+RELOP_GE        ">="          
+RELOP_EQ        "=="          
+RELOP_NE        "!="          
+BOOL_LIT        "true"|"false"
+NUM_LIT         {num}         
+IDENT           {identifier}  
+COMMENT         {comment}     
+NEWLINE         {newline}     
+WHITESPACE      {whitespace}  
+BLKCOMMENT      {blkcomment}
+
+======================================================================================================
+mini-C context-free grammar
+
+%right  ASSIGN
+%left   OP_OR 
+%left   OP_AND 
+%left   RELOP_EQ      RELOP_NE  
+%left   RELOP_LE      RELOP_LT      RELOP_GE      RELOP_GT 
+%left   OP_ADD        OP_SUB
+%left   OP_MUL        OP_DIV        OP_MOD 
+%right  OP_NOT
+
+ program        ->  decl_list
+ decl_list      ->  decl_list  decl  |  eps
+ decl           ->  fun_decl
+ type_spec      ->  BOOL  |  NUM
+ fun_decl       ->  type_spec  IDENT  LPAREN  params  RPAREN  LBRACE  local_decls  stmt_list  RBRACE
+ params         ->  param_list       |  eps
+ param_list     ->  param_list  COMMA  param         |  param
+ param          ->  type_spec  IDENT
+ stmt_list      ->  stmt_list  stmt  |  eps
+ stmt           ->  expr_stmt  SEMI  |  compound_stmt  |  if_stmt  |  while_stmt  |  return_stmt  SEMI  |  print_stmt  SEMI  |  SEMI
+ expr_stmt      ->  IDENT  ASSIGN  expr
+ while_stmt     ->  WHILE  LPAREN  expr  RPAREN  compound_stmt
+ compound_stmt  ->  LBRACE  local_decls  stmt_list  RBRACE
+ local_decls    ->  local_decls  local_decl  |  eps
+ local_decl     ->  type_spec  IDENT  SEMI
+ if_stmt        ->  IF  LPAREN  expr  RPAREN  compound_stmt  ELSE  compound_stmt
+ return_stmt    ->  RETURN  expr
+ print_stmt     ->  PRINT  expr
+ arg_list       ->  arg_list  COMMA  expr  |  expr
+ args           ->  arg_list  |  eps
+ expr           ->  expr  OP_ADD    expr  |  expr  OP_SUB    expr  |  expr  OP_MUL    expr  |  expr  OP_DIV    expr  |  expr  OP_AND    expr  |  expr  OP_OR     expr  |  OP_NOT  expr
+                |  expr  RELOP_EQ  expr  |  expr  RELOP_NE  expr  |  expr  RELOP_LE  expr  |  expr  RELOP_LT  expr  |  expr  RELOP_GE  expr  |  expr  RELOP_GT  expr
+                |  LPAREN  expr  RPAREN
+                |  IDENT
+                |  IDENT  LPAREN  args  RPAREN
+                |  BOOL_LIT  |  NUM_LIT
