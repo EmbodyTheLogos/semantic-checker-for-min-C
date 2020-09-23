@@ -1,0 +1,44 @@
+num GCD(num a, num b)
+{
+    num gcd;
+
+    if(a == 0 or b == 0)
+    {
+        if(a == 0)
+        { gcd = b; }
+        else
+        { gcd = a; }
+    }
+    else
+    {
+        num _mod;
+        if( a > b )
+        {
+            gcd = GCD( a - b, b );
+        }
+        else
+        {
+            gcd = GCD( b - a, a );
+        }
+    }
+    return gcd;
+}
+
+num main()
+{
+    num gcd;
+
+    gcd = GCD(12, 4);
+    print gcd;
+
+    gcd = GCD(4, 12);
+    print gcd;
+
+    gcd = GCD(4, 7);
+    print gcd;
+
+    gcd = GCD(2*3*5*17*17, 17*4*9*10);
+    print gcd;
+
+    return gcd;
+}

@@ -1,0 +1,20 @@
+num mul(num a, num b)
+{
+    if(a == 0)
+    {
+        return 0;
+    }
+    else
+    {
+        if(b < 0)
+        {    return mul(a, 1.1) - a; }
+        else
+        {    return mul(a, b-1) + a; }
+    }
+}
+num main()
+{
+    num xyz;
+    xyz = mul(true, 5);
+    return 0;
+}

@@ -1,0 +1,7 @@
+num func()
+{
+}
+num main()
+{
+    return 0;
+}

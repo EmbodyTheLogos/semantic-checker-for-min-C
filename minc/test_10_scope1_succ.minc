@@ -1,0 +1,33 @@
+
+num main()
+{
+    num a;
+    num b;
+    num ga;
+    num gb;
+    bool gc;
+    {
+        num la;
+        num lb;
+        {
+            bool a;
+            bool b;
+            bool ga;
+            ga = true;
+            a = true;
+            b = true;
+        }
+        a = 1;
+        b = 2.0;
+        ga = 3;
+        gb = 4.0;
+        gc = true;
+        {
+            bool la;
+            la = a < ga and b >= gb;
+            gc = gc and la;
+        }
+        print gc;
+    }
+    return gb;
+}

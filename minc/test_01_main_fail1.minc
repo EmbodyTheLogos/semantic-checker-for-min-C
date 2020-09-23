@@ -1,0 +1,4 @@
+num nomain()
+{
+    return 0;
+}

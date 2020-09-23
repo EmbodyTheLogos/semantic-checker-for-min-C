@@ -1,0 +1,21 @@
+num func(bool a, num b, num c)
+{
+    num ret;
+    if(a)
+    {
+        ret = b;
+    }
+    else
+    {
+        ret = c;
+    }
+    return ret;
+}
+num main()
+{
+    num d;
+    d = func(true, 1.23, 4.56);
+    d = d * 1.1;
+    print d;
+    return d;
+}

@@ -1,0 +1,37 @@
+num div(num a, num b)
+{
+    num c;
+    if ( a < b )
+    {
+        c = 0;
+    }
+    else
+    {
+        c = div(a - b, b) + 1;
+    }
+    return c;
+}
+
+num mod(num a, num b)
+{
+    num c;
+    if ( a < b )
+    {
+        c = a;
+    }
+    else
+    {
+        c = mod(a - b, b);
+    }
+    return c;
+}
+
+num main()
+{
+    num c;
+
+    print div( 123 , 5 );
+    print mod( 123 , 5 );
+
+    return 0;
+}

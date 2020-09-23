@@ -1,0 +1,11 @@
+num func()
+{
+    return 0;
+}
+num main()
+{
+    bool b;
+    b = (func() == 0);
+    print b;
+    return 10;
+}

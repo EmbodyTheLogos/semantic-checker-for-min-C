@@ -1,0 +1,22 @@
+num Fib(num n)
+{
+    if( n < 0 )
+    {    return 0; }
+    else
+    {
+        if( n == 0 )
+        {    return 0; }
+        else
+        {    return Fib(n-1 + Fib(n-2)); }
+    }
+}
+
+num main(bool n)
+{
+    num fib;
+
+    fib = Fib(n);
+    print fib;
+
+    return 0;
+}

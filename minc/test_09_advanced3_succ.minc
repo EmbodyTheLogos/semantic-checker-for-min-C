@@ -1,0 +1,27 @@
+num Fib(num n)
+{
+    if( n <= 1 )
+    {
+        return n;
+    }
+    else
+    {
+        return Fib(n-1) + Fib(n-2);
+    }
+}
+
+num main()
+{
+    num fib;
+
+    fib = Fib(10);
+    print fib;
+
+    if(fib < 10) {
+       fib = 1;
+    } else {
+       fib = 0;
+    }
+
+    return fib;
+}

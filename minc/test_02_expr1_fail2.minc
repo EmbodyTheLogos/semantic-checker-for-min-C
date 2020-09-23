@@ -1,0 +1,9 @@
+num main()
+{
+    num x;
+    num y;
+    bool z;
+    x = x + 1;
+    y = 1.1 * 2.2 + 3.5 / (4 - 5.3);
+    z = true and 1 < 3;
+}

@@ -1,0 +1,22 @@
+num main(num a, num b)
+{
+    num la;
+    num lb;
+    {
+        bool a;
+        bool b;
+        bool ga;
+        ga = true;
+        a = true;
+        b = true;
+    }
+    a = 1;
+    b = 2.0;
+    ga = true;
+    gb = 4.0;
+    {
+        bool la;
+        la = true;
+    }
+    return 0;
+}

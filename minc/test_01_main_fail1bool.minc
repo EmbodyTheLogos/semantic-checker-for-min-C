@@ -1,0 +1,5 @@
+bool nomain()
+{
+    int x;
+    return true;
+}
