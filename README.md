@@ -1,4 +1,5 @@
 ***This is a school project. Individual Project***
+
 To compile Lexer.flex file:
 java -jar jflex-1.6.1.jar Lexer.flex
 
@@ -47,5 +48,3 @@ java SemanticChecker ../minc/test_10_scope1_fail1.minc    >   ../test_output/tes
 java SemanticChecker ../minc/test_10_scope1_fail2.minc    >   ../test_output/test_output_10_scope1_fail2.txt
 java SemanticChecker ../minc/test_10_scope1_fail3.minc    >   ../test_output/test_output_10_scope1_fail3.txt
 java SemanticChecker ../minc/test_10_scope1_succ.minc     >   ../test_output/test_output_10_scope1_succ.txt
-
-
